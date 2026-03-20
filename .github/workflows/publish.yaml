@@ -28,9 +28,6 @@ jobs:
           ACCESS_CSV: ${{ secrets.ACCESS_CSV }}
         run: echo $ACCESS_CSV >> ${GITHUB_WORKSPACE}/library/access.csv
 
-      - name: Run tests
-        run: ./gradlew allTests
-
       - name: Extract Version from Tag
         id: version
         run: |
@@ -40,7 +37,10 @@ jobs:
           echo "Extracted tag name: $TAG_NAME"
           echo "version=$VERSION" >> ${GITHUB_WORKSPACE}/gradle.properties
 
+      - name: Run tests
+        run: ./gradlew allTests --stacktrace
+
       - name: Publish to maven registry
-        run: ./gradlew publish
+        run: ./gradlew publish --stacktrace
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
