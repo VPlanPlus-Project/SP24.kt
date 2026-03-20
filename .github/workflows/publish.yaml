@@ -10,6 +10,9 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Prepare JDK
         uses: actions/setup-java@v5.2.0
         with:
@@ -19,9 +22,6 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
-
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - name: Prepare test access environment
         env:
