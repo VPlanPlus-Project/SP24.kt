@@ -38,7 +38,7 @@ jobs:
           echo "version=$VERSION" >> ${GITHUB_WORKSPACE}/gradle.properties
 
       - name: Run tests
-        run: ./gradlew jvmTests --stacktrace
+        run: ./gradlew jvmTest --stacktrace
 
       - name: Store reports
         if: failure()
