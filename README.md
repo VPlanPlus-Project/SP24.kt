@@ -1,7 +1,8 @@
 # SP24.kt
 
 [![Gradle Test & Publish](https://github.com/VPlanPlus-Project/SP24.kt/actions/workflows/publish.yaml/badge.svg)](https://github.com/VPlanPlus-Project/SP24.kt/actions/workflows/publish.yaml)
-![GitHub Tag](https://img.shields.io/github/v/tag/VPlanPlus-Project/SP24.kt?style=flat)
+![Current version](https://img.shields.io/github/v/tag/VPlanPlus-Project/SP24.kt?style=flat&label=Current%20version)
+
 
 
 SP24.kt is a Kotlin library for building software that needs data
