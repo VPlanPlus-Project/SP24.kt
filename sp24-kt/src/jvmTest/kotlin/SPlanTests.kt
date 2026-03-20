@@ -2,7 +2,6 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
-import plus.vplan.lib.sp24.model.splan.student.SPlanBaseDataStudent
 import plus.vplan.lib.sp24.source.Response
 import plus.vplan.lib.sp24.source.extension.Timetable
 

@@ -11,4 +11,4 @@ xcuserdata
 .kotlin
 
 *.example.xml
-/library/access.csv
+/sp24-kt/access.csv

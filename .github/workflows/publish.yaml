@@ -20,7 +20,7 @@ jobs:
         env:
           ACCESS_CSV: ${{ secrets.ACCESS_CSV }}
         run: |
-          cat <<EOF > ${GITHUB_WORKSPACE}/library/access.csv
+          cat <<EOF > ${GITHUB_WORKSPACE}/sp24-kt/access.csv
           $ACCESS_CSV
           EOF
 

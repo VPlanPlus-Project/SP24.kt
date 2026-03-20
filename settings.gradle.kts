@@ -17,4 +17,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "sp24-kt"
-include(":library")
+include(":sp24-kt")
