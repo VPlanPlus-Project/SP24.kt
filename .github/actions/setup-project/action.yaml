@@ -9,9 +9,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout
-      uses: actions/checkout@v5
-
     - name: Prepare JDK
       uses: actions/setup-java@v5.2.0
       with:
