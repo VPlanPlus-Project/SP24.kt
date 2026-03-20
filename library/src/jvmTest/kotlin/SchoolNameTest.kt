@@ -14,6 +14,6 @@ class SchoolNameTest {
         }
         val schoolName = schoolNameResponse.data
         println(schoolName)
-        assertTrue(schoolName == "Musterschule Indiware") { "Name does not match" }
+        assertTrue(schoolName in setOf("Testschule", "Musterschule Indiware")) { "Name does not match" }
     }
 }

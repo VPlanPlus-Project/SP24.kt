@@ -11,3 +11,4 @@ xcuserdata
 .kotlin
 
 *.example.xml
+/library/access.csv

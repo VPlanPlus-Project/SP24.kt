@@ -7,8 +7,8 @@ class SubstitutionPlanTest {
 
     @Test
     fun `Get substitution plan`() = runBlocking {
-        val client = clientForSp24Id("10048477")!!
-        val substitutionPlan = client.substitutionPlan.getSubstitutionPlan(LocalDate(2025, 6, 27)) as Response.Success
+        val client = clientForSp24Id("10063764")!!
+        val substitutionPlan = client.substitutionPlan.getSubstitutionPlan(LocalDate(2026, 3, 20)) as Response.Success
         println(substitutionPlan.data)
     }
 }

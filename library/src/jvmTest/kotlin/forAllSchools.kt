@@ -18,7 +18,7 @@ suspend fun forAllSchools(body: suspend (Stundenplan24Client) -> Unit) {
     for (access in readAccessList()) {
         body(clients.getOrPut(access) {
             println()
-            println(access.username + ":" + access.password + "@" + access.sp24SchoolId)
+            println(access.username + "@" + access.sp24SchoolId)
             Stundenplan24Client(
                 authentication = access,
                 enableInternalCache = true,
@@ -26,6 +26,10 @@ suspend fun forAllSchools(body: suspend (Stundenplan24Client) -> Unit) {
             )
         })
     }
+}
+
+fun authenticationForSp24Id(sp24SchoolId: String): Authentication? {
+    return readAccessList().find { it.sp24SchoolId == sp24SchoolId }
 }
 
 fun clientForSp24Id(sp24SchoolId: String): Stundenplan24Client? {

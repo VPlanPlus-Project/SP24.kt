@@ -5,7 +5,7 @@ import plus.vplan.lib.sp24.source.Response
 
 class LessonTimesTest {
 
-    private val client = clientForSp24Id("20331941")!!
+    private val client = clientForSp24Id("10000000")!!
     @Test
     fun testLessonTimesNotEmpty() = runBlocking {
         val lessonTimes = (client.lessonTime.getLessonTime(null) as Response.Success).data

@@ -9,7 +9,7 @@ import plus.vplan.lib.sp24.source.ValueSource
 
 class SchoolEntityTest {
 
-    val client = clientForSp24Id("20331941")!!
+    val client = clientForSp24Id("10063764")!!
 
     @Test
     fun getClasses() = runBlocking {

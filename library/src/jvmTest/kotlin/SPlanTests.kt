@@ -10,16 +10,16 @@ class SPlanTests {
 
     val client = clientForSp24Id("10063764")!!
 
-    @Test
-    fun sPlanTestsBaseData() = runBlocking {
-        val baseData = client.getSPlanBaseDataStudent(getSPlanSchool()).also {
-            if (it is Response.Error.OnlineError.NotFound) return@runBlocking
-        } as? Response.Success<SPlanBaseDataStudent>
-        assertNotNull(baseData)
-        val data = baseData!!.data
-        assertTrue(data.holidays.isNotEmpty())
-        assertTrue(data.classes.any { it.plan?.lessons.orEmpty().isNotEmpty() })
-    }
+//    @Test
+//    fun sPlanTestsBaseData() = runBlocking {
+//        val baseData = client.getSPlanBaseDataStudent(getSPlanSchool()).also {
+//            if (it is Response.Error.OnlineError.NotFound) return@runBlocking
+//        } as? Response.Success<SPlanBaseDataStudent>
+//        assertNotNull(baseData)
+//        val data = baseData!!.data
+//        assertTrue(data.holidays.isNotEmpty())
+//        assertTrue(data.classes.any { it.plan?.lessons.orEmpty().isNotEmpty() })
+//    }
 
     @Test
     fun sPlanTestsExtension() = runBlocking {

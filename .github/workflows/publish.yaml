@@ -1,0 +1,46 @@
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: macos-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Prepare JDK
+        uses: actions/setup-java@v5.2.0
+        with:
+          java-version: 21
+          distribution: temurin
+          cache: gradle
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare test access environment
+        env:
+          ACCESS_CSV: ${{ secrets.ACCESS_CSV }}
+        run: echo $ACCESS_CSV >> ${GITHUB_WORKSPACE}/library/access.csv
+
+      - name: Run tests
+        run: ./gradlew allTests
+
+      - name: Extract Version from Tag
+        id: version
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          VERSION=${TAG_NAME#v}  # Remove "v"-prefix
+          echo "Extracted version: $VERSION"
+          echo "Extracted tag name: $TAG_NAME"
+          echo "version=$VERSION" >> ${GITHUB_WORKSPACE}/gradle.properties
+
+      - name: Publish to maven registry
+        run: ./gradlew publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

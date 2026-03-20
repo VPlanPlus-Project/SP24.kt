@@ -6,7 +6,7 @@ import kotlin.test.Test
 
 class WeekTest {
 
-    val client = clientForSp24Id("20331941")!!
+    val client = clientForSp24Id("10000000")!!
 
     @Test
     fun getAllWeeks() = runBlocking {
