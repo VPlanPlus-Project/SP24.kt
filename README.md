@@ -1,6 +1,8 @@
 # SP24.kt
 
 [![Gradle Test & Publish](https://github.com/VPlanPlus-Project/SP24.kt/actions/workflows/publish.yaml/badge.svg)](https://github.com/VPlanPlus-Project/SP24.kt/actions/workflows/publish.yaml)
+![GitHub Tag](https://img.shields.io/github/v/tag/VPlanPlus-Project/SP24.kt?style=flat)
+
 
 SP24.kt is a Kotlin library for building software that needs data
 from [stundenplan24.de](https://stundenplan24.de), developed by Indiware.
