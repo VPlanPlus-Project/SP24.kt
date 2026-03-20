@@ -26,7 +26,10 @@ jobs:
       - name: Prepare test access environment
         env:
           ACCESS_CSV: ${{ secrets.ACCESS_CSV }}
-        run: echo $ACCESS_CSV >> ${GITHUB_WORKSPACE}/library/access.csv
+        run: |
+          cat <<EOF > ${GITHUB_WORKSPACE}/library/access.csv
+          $ACCESS_CSV
+          EOF
 
       - name: Extract Version from Tag
         id: version
