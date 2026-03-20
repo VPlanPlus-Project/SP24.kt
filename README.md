@@ -17,6 +17,28 @@ cleanup logic into a separate library. That way, we only have to deal with the m
 place, and updates can be rolled out everywhere just by bumping the version. As a nice bonus, others
 can use it too without going through the same headaches.
 
+# Getting started
+## Add the repository
+In your `build.gradle.kts`, add the maven repository for this library.
+```kotlin
+repositories {
+    maven("https://maven.pkg.github.com/VPlanPlus-Project/SP24.kt")
+}
+```
+
+## Finding the latest version
+Checkout the [latest release](https://github.com/VPlanPlus-Project/SP24.kt/releases/latest). Use 
+this version number in your `libs.versions.toml` or `build.gradle.kts`:
+
+```kotlin
+implementation("plus.vplan.lib:sp24:VERSION")
+```
+
+# Using the library
+Documentation following soon.
+We'll [dogfood](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) this library in our own
+projects and improve and extend it as we go.
+
 ## Some code examples
 
 To get started, create a client.
@@ -50,9 +72,3 @@ standardized data complicated. But SP24.kt provides a convenient function.
 val schoolName = (client.getSchoolName() as? Response.Success)?.data
 ```
 See [SchoolNameTest.kt](library/src/jvmTest/kotlin/SchoolNameTest.kt) to learn mode.
-
-### Loading classes, teachers and rooms
-Documentation following soon.
-We'll [dogfood](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) this library in our own
-projects and improve and extend it as we go. We will also deploy it on our Maven Repository and
-create GitHub-Releases in the future.
