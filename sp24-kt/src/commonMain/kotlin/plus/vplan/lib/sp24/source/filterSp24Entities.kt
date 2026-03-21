@@ -15,5 +15,5 @@ fun List<String>.filterBadSp24Entities(type: SchoolEntityType): List<String> {
 }
 
 fun String.isBadSp24Entity(): Boolean {
-    return this.isBlank() || this == "_" || this.matches(Regex("-+")) || this == "&nbsp;"
+    return this.isBlank() || this.matches(Regex("-+")) || this == "&nbsp;"
 }
