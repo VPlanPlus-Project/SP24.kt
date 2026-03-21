@@ -3,6 +3,7 @@ import kotlinx.datetime.LocalDate
 import kotlinx.io.files.FileNotFoundException
 import plus.vplan.lib.sp24.source.Authentication
 import plus.vplan.lib.sp24.source.Response
+import plus.vplan.lib.sp24.source.isSuccess
 import java.io.File
 import kotlin.test.Test
 
@@ -75,7 +76,7 @@ class Test {
         runBlocking {
             accessList.forEach { access ->
                 val teachers = stundenplan24Client.getAllTeachersIntelligent(access).let {
-                    if (it !is Response.Success) println(it)
+                    if (!it.isSuccess()) println(it)
                     it as? Response.Success
                 }
                 println("School ID: ${access.sp24SchoolId}, Teachers: ${teachers?.data?.joinToString { "'$it'" }}")
@@ -98,7 +99,7 @@ class Test {
         runBlocking {
             accessList.forEach { access ->
                 val rooms = stundenplan24Client.getAllRoomsIntelligent(access).let {
-                    if (it !is Response.Success) println(it)
+                    if (!it.isSuccess()) println(it)
                     it as? Response.Success
                 }
                 println("School ID: ${access.sp24SchoolId}, Rooms: ${rooms?.data?.joinToString()}")
