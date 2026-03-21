@@ -52,30 +52,8 @@ kotlin {
     jvmToolchain(21)
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = "plus.vplan.lib"
-            artifactId = "sp24"
-            version = libraryVersion
-
-            from(components["kotlin"])
-
-            pom {
-                name = "SP24.kt"
-                description = "A KMP-compatible wrapper for Stundenplan24.de"
-                url = "https://github.com/VPlanPlus-Project/SP24.kt"
-
-                licenses {
-                    license {
-                        name = "Apache License 2.0"
-                        url = "http://www.apache.org/licenses/LICENSE-2.0"
-                    }
-                }
-            }
-        }
-    }
-
+mavenPublishing {
+    publishToMavenCentral()
     repositories {
         maven {
             name = "GitHubPackages"
@@ -85,14 +63,37 @@ publishing {
                 password = System.getenv("GITHUB_TOKEN")
             }
         }
+    }
 
-        maven {
-            name = "OSSRH"
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = System.getenv("OSSRH_USERNAME")
-                password = System.getenv("OSSRH_PASSWORD")
+    if (!gradle.startParameter.taskNames.any { it.contains("publishToMavenLocal") }) {
+        signAllPublications()
+    }
+
+    coordinates(project.group.toString(), project.name, project.version.toString())
+
+    pom {
+        name = "SP24.kt"
+        description = "A KMP-compatible wrapper for Stundenplan24.de"
+        url = "https://github.com/VPlanPlus-Project/SP24.kt"
+
+        licenses {
+            license {
+                name = "Apache License 2.0"
+                url = "http://www.apache.org/licenses/LICENSE-2.0"
             }
+        }
+
+        developers {
+            developer {
+                id = "julius-vincent-babies"
+                name = "Julius Vincent Babies"
+                email = "julvin.babies@gmail.com"
+                url = "https://github.com/Julius-Babies"
+            }
+        }
+
+        scm {
+            url = "https://github.com/VPlanPlus-Project/SP24.kt"
         }
     }
 }
