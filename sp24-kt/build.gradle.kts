@@ -97,7 +97,3 @@ mavenPublishing {
         }
     }
 }
-
-signing {
-    sign(publishing.publications["maven"])
-}
