@@ -21,14 +21,6 @@ place, and updates can be rolled out everywhere just by bumping the version. As 
 can use it too without going through the same headaches.
 
 # Getting started
-## Add the repository
-In your `build.gradle.kts`, add the maven repository for this library.
-```kotlin
-repositories {
-    maven("https://maven.pkg.github.com/VPlanPlus-Project/SP24.kt")
-}
-```
-
 ## Finding the latest version
 Checkout the [latest release](https://github.com/VPlanPlus-Project/SP24.kt/releases/latest). Use 
 this version number in your `libs.versions.toml` or `build.gradle.kts`:
@@ -74,4 +66,4 @@ standardized data complicated. But SP24.kt provides a convenient function.
 ```kotlin
 val schoolName = (client.getSchoolName() as? Response.Success)?.data
 ```
-See [SchoolNameTest.kt](library/src/jvmTest/kotlin/SchoolNameTest.kt) to learn mode.
+See [SchoolNameTest.kt](https://github.com/VPlanPlus-Project/SP24.kt/blob/196914cb3ad63bb2b840a2b37e4ac99a74d80538/sp24-kt/src/jvmTest/kotlin/SchoolNameTest.kt) to learn mode.
