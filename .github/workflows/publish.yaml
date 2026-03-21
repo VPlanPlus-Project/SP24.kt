@@ -42,6 +42,13 @@ jobs:
         id: setup
         uses: ./.github/actions/setup-project
 
+      - name: Cached konan
+        uses: actions/cache@v5
+        with:
+          path: ~/.konan
+          key: ${{ runner.os }}-konan-${{ hashFiles('**/*.gradle*') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}
+          restore-keys: ${{ runner.os }}-konan-
+
       - name: Publish
         run: ./gradlew publish -Pversion=${{ steps.setup.outputs.version }}
         env:
