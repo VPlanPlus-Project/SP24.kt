@@ -1,7 +1,8 @@
 # SP24.kt
 
 [![Gradle Test & Publish](https://github.com/VPlanPlus-Project/SP24.kt/actions/workflows/publish.yaml/badge.svg)](https://github.com/VPlanPlus-Project/SP24.kt/actions/workflows/publish.yaml)
-![Current version](https://img.shields.io/github/v/tag/VPlanPlus-Project/SP24.kt?style=flat&label=Current%20version)
+![Maven Central Version](https://img.shields.io/maven-central/v/plus.vplan.lib/sp24-kt?strategy=highestVersion&style=flat-square&label=Current%20version)
+
 
 
 
@@ -26,7 +27,7 @@ Checkout the [latest release](https://github.com/VPlanPlus-Project/SP24.kt/relea
 this version number in your `libs.versions.toml` or `build.gradle.kts`:
 
 ```kotlin
-implementation("plus.vplan.lib:sp24:VERSION")
+implementation("plus.vplan.lib:sp24-kt:VERSION")
 ```
 
 # Using the library
