@@ -5,6 +5,7 @@ import plus.vplan.lib.sp24.source.Response
 import plus.vplan.lib.sp24.source.SchoolEntityType
 import plus.vplan.lib.sp24.source.Stundenplan24Client
 import plus.vplan.lib.sp24.source.filterBadSp24Entities
+import plus.vplan.lib.sp24.source.isSuccess
 import plus.vplan.lib.sp24.source.removeLeadingZeros
 import plus.vplan.lib.sp24.source.sp24EntityListSplitter
 
@@ -21,7 +22,7 @@ class SubstitutionPlanExtension(
         if (wplanResponse is Response.Error.OnlineError.NotFound) {
 
             val mobdatenResponse = client.getMobileDataStudent(date = date)
-            if (mobdatenResponse !is Response.Success) return mobdatenResponse as Response.Error
+            if (!mobdatenResponse.isSuccess()) return mobdatenResponse
             val mobdatenData = mobdatenResponse.data
 
             return SubstitutionPlan(
