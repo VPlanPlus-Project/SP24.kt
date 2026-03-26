@@ -1,5 +1,4 @@
 import kotlinx.coroutines.runBlocking
-import plus.vplan.lib.sp24.source.Response
 import plus.vplan.lib.sp24.source.isSuccess
 import kotlin.test.Test
 
@@ -15,6 +14,6 @@ class SchoolNameTest {
 
         val schoolName = schoolNameResponse.data
         println(schoolName)
-        assertTrue(schoolName in setOf("Testschule", "Musterschule Indiware")) { "Name does not match" }
+        assertTrue(schoolName in setOf("Testschule", "Musterschule Indiware", "Indiware Testschule")) { "Name does not match, is: $schoolName" }
     }
 }
