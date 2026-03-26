@@ -12,7 +12,6 @@ import io.ktor.client.statement.request
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.URLBuilder
 import io.ktor.http.URLProtocol
-import kotlinx.coroutines.CancellationException
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
@@ -789,7 +788,6 @@ internal inline fun safeRequest(
             when (e) {
                 is ClientRequestException, is HttpRequestTimeoutException -> Response.Error.OnlineError.ConnectionError(e)
                 is ServerResponseException -> Response.Error.Other(e.message, e)
-                is CancellationException -> Response.Error.Cancelled
                 is PayloadParsingException -> {
                     e.printStackTrace()
                     Response.Error.ParsingError(e)
