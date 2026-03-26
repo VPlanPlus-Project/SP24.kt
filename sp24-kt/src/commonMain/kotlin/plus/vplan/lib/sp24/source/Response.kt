@@ -11,7 +11,6 @@ sealed class Response<out T> {
 
         data class Other(val message: String = "Other error", override val throwable: Throwable?) : OnlineError()
         data class ParsingError(override val throwable: Throwable) : Error()
-        data object Cancelled : Error()
 
         sealed class OnlineError: Error() {
             data class ConnectionError(override val throwable: Throwable?) : OnlineError()
